@@ -1,6 +1,7 @@
-require 'hermann'
 require 'concurrent'
 require 'json'
+
+require 'hermann/provider/abstract_producer'
 
 module Hermann
   module Provider
@@ -8,7 +9,7 @@ module Hermann
     # If the producer throw an exception within the Promise a call to +.value!+
     # will raise the exception and the rejected flag will be set to true
     #
-    class JavaProducer
+    class JavaProducer < AbstractProducer
       attr_accessor :producer
 
       #default kafka Producer options
